@@ -1,0 +1,51 @@
+#server
+server:
+  port: 9005
+#spring
+spring:
+  application:
+    name: newproduct
+  datasource:
+    name: SpringCloudSell
+    type: com.alibaba.druid.pool.DruidDataSource
+    #druid
+    druid:
+      filters: stat
+      driver-class-name: com.mysql.jdbc.Driver
+      url: jdbc:mysql://localhost:3306/SpringCloudSell?useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&useSSL=false
+      username: zyx
+      password: zyx
+      initial-size: 1
+      min-idle: 1
+      max-active: 20
+      max-wait: 60000
+      time-between-eviction-runs-millis: 60000
+      min-evictable-idle-time-millis: 300000
+      validation-query: SELECT 'x'
+      test-while-idle: true
+      test-on-borrow: false
+      test-on-return: false
+      pool-prepared-statements: false
+      max-pool-prepared-statement-per-connection-size: 20
+
+  #Eureka Server
+eureka:
+  client:
+    service-url:
+      defaultZone: http://peers0:9009/eureka/,http://peers1:9010/eureka/
+    register-with-eureka: true
+    fetch-registry: true
+  instance:
+    instance-id: ${spring.application.name}:${spring.application.instance_id:${server.port}}
+#    prefer-ip-address: true
+
+#mybatis
+mybatis:
+  mapper-locations: classpath:mapping/*.xml
+  type-aliases-package: com.taeyeon
+
+#logging
+logging:
+  level:
+    com.taeyeon.category.dao: debug
+    com.taeyeon.info.dao: debug
