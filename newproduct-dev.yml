@@ -43,3 +43,8 @@ logging:
 girl:
   name: zhaowanyan
   age: 23
+  
+#boy
+boy:
+  name: zyx
+  age: 30
