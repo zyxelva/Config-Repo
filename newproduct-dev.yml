@@ -38,3 +38,8 @@ logging:
   level:
     com.taeyeon.category.dao: debug
     com.taeyeon.info.dao: debug
+    
+#test
+girl:
+  name: zhaowanyan
+  age: 18
