@@ -28,17 +28,6 @@ spring:
       pool-prepared-statements: false
       max-pool-prepared-statement-per-connection-size: 20
 
-  #Eureka Server
-eureka:
-  client:
-    service-url:
-      defaultZone: http://peers0:9009/eureka/,http://peers1:9010/eureka/
-    register-with-eureka: true
-    fetch-registry: true
-  instance:
-    instance-id: ${spring.application.name}:${spring.application.instance_id:${server.port}}
-#    prefer-ip-address: true
-
 #mybatis
 mybatis:
   mapper-locations: classpath:mapping/*.xml
